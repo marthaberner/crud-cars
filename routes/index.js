@@ -7,7 +7,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/cars', function(req, res, next) {
-  res.render('cars', { title: "Crud Cars" });
+  var db = req.db;
+  var collection = db.get('carcollection');
+  collection.find({},{},function(e,docs){
+      res.render('cars', {
+          "cars" : docs
+      });
+  });
 });
+
+
 
 module.exports = router;

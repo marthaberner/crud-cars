@@ -1,1 +1,13 @@
-h1=title
+extends layout
+
+block content
+  h1.
+    Car list
+  ul
+    each car in cars
+      li
+        car.year
+      li
+        car.make
+      li
+        car.model
